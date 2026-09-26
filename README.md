@@ -175,3 +175,11 @@ A configuração fica em `lib/plans.ts`. O limite de brand kits também está no
 
 - A "capa" é gerada por IA no texto (gancho + sugestão visual). Não há geração de imagem, porque a stack não inclui provedor de imagem. O usuário pode enviar uma foto de capa (layouts *Gancho forte* e *Editorial*).
 - O editor é desktop-only (exibe aviso em telas < 1024 px).
+
+## Painel de admin (`/admin`)
+
+1. Aplique a migration `supabase/migrations/0005_admin.sql` (`supabase db push`).
+2. Defina `ADMIN_EMAILS` com os e-mails que podem acessar, separados por vírgula.
+3. Entre com um desses e-mails: o item **Admin** aparece no menu. Para os demais usuários a rota responde 404.
+
+O painel mostra os indicadores da plataforma (usuários, ativos, MRR estimado e custo de IA), o gráfico de gerações por dia e a lista de usuários, com busca, filtro por plano e ordenação. Na página de cada usuário ficam o uso, o custo, os carrosséis, as chamadas de IA e as ações de suporte: trocar o plano, ajustar ou zerar a quota, suspender ou reativar a conta e apagá-la. Toda ação fica registrada em `admin_audit_log`.

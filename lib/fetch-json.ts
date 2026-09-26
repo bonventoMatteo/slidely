@@ -11,13 +11,22 @@ export class ClientApiError extends Error {
 }
 
 /** POST JSON para as rotas internas, lançando ClientApiError com a mensagem do servidor. */
-export async function postJson<T>(url: string, body: unknown, init?: { signal?: AbortSignal }): Promise<T> {
+export function postJson<T>(url: string, body: unknown, init?: { signal?: AbortSignal }): Promise<T> {
+  return requestJson<T>("POST", url, body, init);
+}
+
+export async function requestJson<T>(
+  method: "POST" | "PATCH" | "DELETE",
+  url: string,
+  body?: unknown,
+  init?: { signal?: AbortSignal },
+): Promise<T> {
   let res: Response;
   try {
     res = await fetch(url, {
-      method: "POST",
+      method,
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(body),
+      body: body === undefined ? undefined : JSON.stringify(body),
       signal: init?.signal,
     });
   } catch {

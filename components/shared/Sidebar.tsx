@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Logo, LogoMark } from "@/components/shared/Logo";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { APP_NAV, type ShellUser } from "./nav";
+import { navFor, type ShellUser } from "./nav";
 import { UsageMeter } from "./UsageMeter";
 import { UserMenu } from "./UserMenu";
 
@@ -36,7 +36,7 @@ export function Sidebar({ user }: { user: ShellUser }) {
       </div>
 
       <nav aria-label="Aplicativo" className="mt-8 flex flex-1 flex-col gap-1">
-        {APP_NAV.map((item) => {
+        {navFor(user).map((item) => {
           const active = isActive(pathname, item.href);
           const link = (
             <Link

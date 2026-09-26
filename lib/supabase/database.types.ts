@@ -10,6 +10,39 @@ export type Database = {
   };
   public: {
     Tables: {
+      admin_audit_log: {
+        Row: {
+          action: string;
+          admin_email: string;
+          admin_id: string | null;
+          created_at: string;
+          details: Json;
+          id: number;
+          target_email: string | null;
+          target_user_id: string | null;
+        };
+        Insert: {
+          action: string;
+          admin_email: string;
+          admin_id?: string | null;
+          created_at?: string;
+          details?: Json;
+          id?: never;
+          target_email?: string | null;
+          target_user_id?: string | null;
+        };
+        Update: {
+          action?: string;
+          admin_email?: string;
+          admin_id?: string | null;
+          created_at?: string;
+          details?: Json;
+          id?: never;
+          target_email?: string | null;
+          target_user_id?: string | null;
+        };
+        Relationships: [];
+      };
       brand_kits: {
         Row: {
           colors: Json;
@@ -378,6 +411,47 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      admin_daily_usage: {
+        Args: { p_days?: number; p_user_id?: string | null };
+        Returns: { cost: number; day: string; generations: number }[];
+      };
+      admin_list_users: {
+        Args: { p_limit?: number; p_offset?: number; p_plan?: string | null; p_search?: string | null; p_sort?: string };
+        Returns: {
+          banned_until: string | null;
+          carousels: number;
+          cost_30d: number;
+          cost_total: number;
+          created_at: string;
+          email: string;
+          full_name: string | null;
+          generations_30d: number;
+          id: string;
+          last_generation_at: string | null;
+          last_sign_in_at: string | null;
+          monthly_generations: number;
+          monthly_reset_at: string;
+          plan: string;
+          subscription_status: string | null;
+          total_count: number;
+        }[];
+      };
+      admin_overview: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          active_users_30d: number;
+          active_users_7d: number;
+          carousels_total: number;
+          cost_30d: number;
+          generations_30d: number;
+          new_users_30d: number;
+          new_users_7d: number;
+          plan_business: number;
+          plan_free: number;
+          plan_pro: number;
+          total_users: number;
+        }[];
+      };
       consume_generation_quota: {
         Args: { p_limit: number; p_user_id: string };
         Returns: {

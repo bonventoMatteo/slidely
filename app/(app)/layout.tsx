@@ -3,6 +3,7 @@ import { Header } from "@/components/shared/Header";
 import type { ShellUser } from "@/components/shared/nav";
 import { Sidebar } from "@/components/shared/Sidebar";
 import { getPlan } from "@/lib/plans";
+import { isAdminEmail } from "@/lib/server/admin";
 import { getSession } from "@/lib/supabase/server";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
@@ -19,6 +20,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     planName: plan.name,
     used: resetDue ? 0 : profile.monthly_generations,
     limit: plan.monthlyGenerations,
+    isAdmin: isAdminEmail(session.user.email),
   };
 
   return (

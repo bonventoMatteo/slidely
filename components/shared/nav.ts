@@ -1,4 +1,4 @@
-import { CreditCard, FolderKanban, LayoutDashboard, LayoutTemplate, Palette, type LucideIcon } from "lucide-react";
+import { CreditCard, ShieldCheck, FolderKanban, LayoutDashboard, LayoutTemplate, Palette, type LucideIcon } from "lucide-react";
 
 export type NavItem = { href: string; label: string; icon: LucideIcon };
 
@@ -10,6 +10,12 @@ export const APP_NAV: NavItem[] = [
   { href: "/billing", label: "Plano", icon: CreditCard },
 ];
 
+const ADMIN_ITEM: NavItem = { href: "/admin", label: "Admin", icon: ShieldCheck };
+
+export function navFor(user: ShellUser): NavItem[] {
+  return user.isAdmin ? [...APP_NAV, ADMIN_ITEM] : APP_NAV;
+}
+
 export type ShellUser = {
   email: string;
   fullName: string;
@@ -18,4 +24,5 @@ export type ShellUser = {
   used: number;
   /** -1 = ilimitado */
   limit: number;
+  isAdmin?: boolean;
 };
