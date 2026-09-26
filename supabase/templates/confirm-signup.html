@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="x-apple-disable-message-reformatting" />
+  <meta name="color-scheme" content="light only" />
+  <title>Confirme seu e-mail — slidely</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f4f5; -webkit-text-size-adjust:100%;">
+  <!-- Pré-cabeçalho (aparece na prévia da caixa de entrada) -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent;">
+    Falta só um clique para ativar sua conta e criar seu primeiro carrossel.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f5;">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:520px;">
+
+          <!-- Logo -->
+          <tr>
+            <td align="center" style="padding:0 0 24px 0;">
+              <a href="{{ .SiteURL }}" target="_blank" style="text-decoration:none;">
+                <img src="{{ .SiteURL }}/brand/slidely-wordmark-black.png" width="120" alt="slidely"
+                  style="display:block; width:120px; height:auto; border:0; font-family:Arial, Helvetica, sans-serif; font-size:22px; font-weight:bold; color:#0a0a0a;" />
+              </a>
+            </td>
+          </tr>
+
+          <!-- Cartão -->
+          <tr>
+            <td style="background-color:#ffffff; border-radius:16px; overflow:hidden; border:1px solid #e4e4e7;">
+              <!-- Faixa da marca -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="6" bgcolor="#ff5b5d"
+                    style="height:6px; line-height:6px; font-size:0; background-color:#ff5b5d; background-image:linear-gradient(90deg, #ff7a1a 0%, #ff5b5d 50%, #ff4d9d 100%);">&nbsp;</td>
+                </tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding:40px 40px 8px 40px; font-family:Arial, Helvetica, sans-serif;">
+                    <h1 style="margin:0 0 16px 0; font-size:26px; line-height:32px; font-weight:800; color:#0a0a0a; letter-spacing:-0.5px;">
+                      Confirme seu e-mail
+                    </h1>
+                    <p style="margin:0 0 12px 0; font-size:16px; line-height:26px; color:#3f3f46;">
+                      Que bom ter você no <strong style="color:#0a0a0a;">slidely</strong>! Para ativar sua conta, confirme que
+                      <strong style="color:#0a0a0a;">{{ .Email }}</strong> é o seu endereço de e-mail.
+                    </p>
+                  </td>
+                </tr>
+
+                <!-- Botão -->
+                <tr>
+                  <td align="center" style="padding:24px 40px 32px 40px;">
+                    <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="{{ .ConfirmationURL }}" style="height:52px; v-text-anchor:middle; width:280px;" arcsize="24%" stroke="f" fillcolor="#ff5b5d">
+                      <center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px; font-weight:bold;">Confirmar meu e-mail</center>
+                    </v:roundrect>
+                    <![endif]-->
+                    <!--[if !mso]><!-- -->
+                    <a href="{{ .ConfirmationURL }}" target="_blank"
+                      style="display:inline-block; padding:16px 36px; border-radius:12px; background-color:#ff5b5d; background-image:linear-gradient(135deg, #ff7a1a 0%, #ff5b5d 50%, #ff4d9d 100%); color:#ffffff; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold; line-height:20px; text-decoration:none;">
+                      Confirmar meu e-mail
+                    </a>
+                    <!--<![endif]-->
+                  </td>
+                </tr>
+
+                <!-- O que vem depois -->
+                <tr>
+                  <td style="padding:0 40px 8px 40px; font-family:Arial, Helvetica, sans-serif;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fafafa; border-radius:12px; border:1px solid #f0f0f1;">
+                      <tr>
+                        <td style="padding:20px 24px;">
+                          <p style="margin:0 0 10px 0; font-size:13px; font-weight:bold; text-transform:uppercase; letter-spacing:1px; color:#ff5b5d;">
+                            Depois de confirmar
+                          </p>
+                          <p style="margin:0 0 6px 0; font-size:15px; line-height:22px; color:#3f3f46;">✦&nbsp; Escreva um tema ou cole o link de uma matéria</p>
+                          <p style="margin:0 0 6px 0; font-size:15px; line-height:22px; color:#3f3f46;">✦&nbsp; A IA monta o roteiro e as artes em segundos</p>
+                          <p style="margin:0; font-size:15px; line-height:22px; color:#3f3f46;">✦&nbsp; Ajuste no editor e baixe pronto para postar</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Link alternativo -->
+                <tr>
+                  <td style="padding:24px 40px 36px 40px; font-family:Arial, Helvetica, sans-serif;">
+                    <p style="margin:0 0 8px 0; font-size:13px; line-height:20px; color:#71717a;">
+                      O botão não funcionou? Copie e cole este link no navegador:
+                    </p>
+                    <p style="margin:0; font-size:13px; line-height:20px; word-break:break-all;">
+                      <a href="{{ .ConfirmationURL }}" target="_blank" style="color:#ff5b5d; text-decoration:underline;">{{ .ConfirmationURL }}</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Rodapé -->
+          <tr>
+            <td align="center" style="padding:24px 24px 0 24px; font-family:Arial, Helvetica, sans-serif;">
+              <p style="margin:0 0 8px 0; font-size:12px; line-height:18px; color:#71717a;">
+                Por segurança, este link expira em 24 horas. Se você não criou uma conta no slidely, ignore este e-mail. Nenhuma conta será ativada.
+              </p>
+              <p style="margin:0; font-size:12px; line-height:18px; color:#a1a1aa;">
+                © slidely · Carrosséis com IA em segundos
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
