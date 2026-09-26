@@ -52,11 +52,16 @@ function translateAuthError(error: AuthError): string {
   if (m.includes("invalid login credentials")) return AUTH_ERRORS.invalid_credentials;
   if (m.includes("email not confirmed")) return AUTH_ERRORS.email_not_confirmed;
   if (m.includes("already registered")) return AUTH_ERRORS.user_already_exists;
-  if (m.includes("sending confirmation email") || m.includes("not authorized")) return AUTH_ERRORS.email_address_not_authorized;
+  if (m.includes("not authorized")) return AUTH_ERRORS.email_address_not_authorized;
+  if (m.includes("sending") && m.includes("email")) return EMAIL_SEND_FAILED;
+  if (error.status && error.status >= 500) return AUTH_ERRORS.unexpected_failure;
   if (m.includes("database error")) return "Erro ao criar a conta no banco. Verifique as migrations do Supabase.";
   if (m.includes("rate limit")) return AUTH_ERRORS.over_request_rate_limit;
   return `Não foi possível concluir: ${error.message}`;
 }
+
+const EMAIL_SEND_FAILED =
+  "Não conseguimos enviar o e-mail de confirmação agora. Tente de novo em alguns minutos ou fale com o suporte.";
 
 export function LoginForm({ next }: { next: string }) {
   const router = useRouter();
