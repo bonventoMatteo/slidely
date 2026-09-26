@@ -54,6 +54,9 @@ export const getSession = cache(async (): Promise<SessionContext | null> => {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return null;
+  // Conta suspensa no painel de admin: bloqueia na hora, sem esperar o token expirar.
+  const bannedUntil = (user as { banned_until?: string | null }).banned_until;
+  if (bannedUntil && new Date(bannedUntil).getTime() > Date.now()) return null;
 
   const { data: profile, error } = await supabase.from("profiles").select("*").eq("id", user.id).maybeSingle();
   if (error) {

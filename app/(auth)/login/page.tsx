@@ -8,6 +8,7 @@ const ERRORS: Record<string, string> = {
   config: "O Supabase ainda não foi configurado. Preencha o .env.local (veja o README).",
   auth: "O link de confirmação expirou ou é inválido. Entre ou peça um novo cadastro.",
   session: "Não foi possível carregar sua conta. Confira se as migrations do Supabase foram aplicadas e entre novamente.",
+  suspended: "Sua conta está suspensa. Fale com o suporte para mais informações.",
 };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string; error?: string }> }) {

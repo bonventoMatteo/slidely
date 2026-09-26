@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import type { Database } from "./database.types";
 
-const PROTECTED_PREFIXES = ["/dashboard", "/projects", "/editor", "/brand-kits", "/templates", "/billing"];
+const PROTECTED_PREFIXES = ["/dashboard", "/projects", "/editor", "/brand-kits", "/templates", "/billing", "/admin"];
 const AUTH_PAGES = ["/login", "/signup"];
 
 function matches(pathname: string, prefixes: string[]) {
@@ -41,9 +41,12 @@ export async function updateSession(request: NextRequest) {
 
   // Não coloque código entre createServerClient e getUser (recomendação do Supabase).
   let userId: string | null = null;
+  let suspended = false;
   try {
     const { data } = await supabase.auth.getUser();
-    userId = data.user?.id ?? null;
+    const bannedUntil = (data.user as { banned_until?: string | null } | null)?.banned_until;
+    suspended = Boolean(bannedUntil && new Date(bannedUntil).getTime() > Date.now());
+    userId = suspended ? null : (data.user?.id ?? null);
   } catch {
     userId = null;
   }
@@ -53,6 +56,10 @@ export async function updateSession(request: NextRequest) {
     response.cookies.getAll().forEach((cookie) => redirect.cookies.set(cookie));
     return redirect;
   };
+
+  if (suspended && matches(pathname, PROTECTED_PREFIXES)) {
+    return redirectWithCookies(new URL("/login?error=suspended", request.url));
+  }
 
   if (!userId && matches(pathname, PROTECTED_PREFIXES)) {
     const loginUrl = new URL("/login", request.url);
