@@ -1,0 +1,134 @@
+[
+  {
+    "file": "capa-real-0.webp",
+    "template": "Capa Real",
+    "category": "Finanças",
+    "position": 1
+  },
+  {
+    "file": "capa-real-1.webp",
+    "template": "Capa Real",
+    "category": "Finanças",
+    "position": 2
+  },
+  {
+    "file": "capa-real-2.webp",
+    "template": "Capa Real",
+    "category": "Finanças",
+    "position": 3
+  },
+  {
+    "file": "capa-real-3.webp",
+    "template": "Capa Real",
+    "category": "Finanças",
+    "position": 4
+  },
+  {
+    "file": "capa-real-4.webp",
+    "template": "Capa Real",
+    "category": "Finanças",
+    "position": 7
+  },
+  {
+    "file": "manchete-0.webp",
+    "template": "Manchete",
+    "category": "Notícias",
+    "position": 1
+  },
+  {
+    "file": "manchete-3.webp",
+    "template": "Manchete",
+    "category": "Notícias",
+    "position": 4
+  },
+  {
+    "file": "fio-0.webp",
+    "template": "Fio",
+    "category": "Criadores",
+    "position": 1
+  },
+  {
+    "file": "fio-2.webp",
+    "template": "Fio",
+    "category": "Criadores",
+    "position": 3
+  },
+  {
+    "file": "documental-0.webp",
+    "template": "Documental",
+    "category": "Negócios",
+    "position": 1
+  },
+  {
+    "file": "documental-1.webp",
+    "template": "Documental",
+    "category": "Negócios",
+    "position": 2
+  },
+  {
+    "file": "neo-brutal-0.webp",
+    "template": "Neo Brutal",
+    "category": "Marketing Digital",
+    "position": 1
+  },
+  {
+    "file": "neo-brutal-2.webp",
+    "template": "Neo Brutal",
+    "category": "Marketing Digital",
+    "position": 3
+  },
+  {
+    "file": "suico-2.webp",
+    "template": "Suíço",
+    "category": "Negócios",
+    "position": 3
+  },
+  {
+    "file": "aurora-0.webp",
+    "template": "Aurora",
+    "category": "Tecnologia",
+    "position": 1
+  },
+  {
+    "file": "studio-0.webp",
+    "template": "Studio",
+    "category": "Tecnologia",
+    "position": 1
+  },
+  {
+    "file": "studio-1.webp",
+    "template": "Studio",
+    "category": "Tecnologia",
+    "position": 2
+  },
+  {
+    "file": "signature-0.webp",
+    "template": "Signature",
+    "category": "Geral",
+    "position": 1
+  },
+  {
+    "file": "signature-3.webp",
+    "template": "Signature",
+    "category": "Geral",
+    "position": 4
+  },
+  {
+    "file": "luxo-0.webp",
+    "template": "Luxo",
+    "category": "Premium",
+    "position": 1
+  },
+  {
+    "file": "consultoria-0.webp",
+    "template": "Consultoria",
+    "category": "Negócios",
+    "position": 1
+  },
+  {
+    "file": "pastel-2.webp",
+    "template": "Pastel",
+    "category": "Lifestyle",
+    "position": 3
+  }
+]
